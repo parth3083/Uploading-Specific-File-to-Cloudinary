@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const uploadRoutes = require("./Routes/UploadRoutes");
+const uploadRoutes = require("./Routes/UploadRoutes"); // Updated import
 
 const app = express();
 
@@ -12,8 +12,10 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.use("/api/upload", uploadRoutes);
+// Use the combined upload route
+app.use("/api", uploadRoutes);
 
 app.listen(3000, () => {
   console.log("http://localhost:3000");
 });
+
